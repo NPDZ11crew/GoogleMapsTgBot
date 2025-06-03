@@ -1,7 +1,7 @@
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ContextTypes
 
-async def handle_subtype(update: Update, context: ContextTypes.DEFAULT_TYPE,RADIUS=3):
+async def handle_subtype(update: Update, context: ContextTypes.DEFAULT_TYPE,RADIUS=4):
     query = update.callback_query
     await query.answer()
     context.user_data['subtype'] = query.data

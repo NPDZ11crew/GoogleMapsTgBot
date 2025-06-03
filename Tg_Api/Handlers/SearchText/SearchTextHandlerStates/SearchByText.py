@@ -7,8 +7,12 @@ from Tg_Api.KeyBoards.InlineKeyboards import CreateDetailsButton
 
 async def searchByText(update: Update, context: ContextTypes.DEFAULT_TYPE, GET_DETAILS=1):
     data = await SearchByTextAsync(update.message.text)
+    print(repr(data))
+    name = data['displayName']
+    if isinstance(name, dict):
+        name = name.get('text', '')
 
-    message = f"Name: {data['displayName']['text']} - rating: {data['rating']}\n" \
+    message = f"Name: {name} - rating: {data['rating']}\n" \
               f"Phone number: {data['nationalPhoneNumber']}\n" \
               f"Website: {data['googleMapsUri']}\n"
 

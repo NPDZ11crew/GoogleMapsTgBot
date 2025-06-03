@@ -15,7 +15,9 @@ nearbySearchHandler = ConversationHandler(
     states={
         LOCATION: [MessageHandler(filters.TEXT | filters.LOCATION, handle_location)],
         HANDLE_CITY: [MessageHandler(filters.TEXT, sendPrompt)],
-        PLACE_TYPE: [CallbackQueryHandler(handle_place_type)],
+        PLACE_TYPE: [
+            CallbackQueryHandler(handle_category_selection, pattern=r"^(cat_|page_|done_selecting)"),
+        ],
         SUBTYPE: [CallbackQueryHandler(handle_subtype)],
         RADIUS: [MessageHandler(filters.TEXT & filters.Regex(r'^\d+$'), handle_radius)],
         SHOW_RESULTS: [CallbackQueryHandler(handle_pagination, pattern=r'^page_\d+$')],

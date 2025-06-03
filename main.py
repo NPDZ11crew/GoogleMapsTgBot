@@ -1,14 +1,11 @@
-import datetime
 import logging
 
 import dotenv
-from telegram import Update, InlineKeyboardMarkup, InputMediaPhoto
-from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, MessageHandler, filters, ConversationHandler, \
-    CallbackQueryHandler
+from telegram import Update
+from telegram.ext import ApplicationBuilder, ContextTypes
 import os
 from Tg_Api.Handlers import *
-from GoogleMapsApi import *
-from Tg_Api.KeyBoards.InlineKeyboards import *
+
 SEARCH_TEXT = 0
 
 logging.basicConfig(
